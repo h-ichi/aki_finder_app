@@ -1,0 +1,105 @@
+/* コンテナ全体 */
+.aki-finder-container {
+  padding: 16px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* 漢字グリッド */
+.kanji-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;               /* 余白固定 */
+  justify-content: center; 
+  margin-top: 16px;
+  max-width: 100%;
+}
+
+/* 漢字ボタン */
+.kanji-grid button {
+  font-size: 20px;        /* 文字サイズ固定 */
+  margin: 1px;            /* 余白固定 */
+  padding: 8px 10px;      /* パディング固定 */
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  color: white;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.25s;
+}
+
+/* ホバー・フォーカス効果 */
+.kanji-grid button:hover {
+  border-color: #646cff;
+  transform: translateY(-1px);
+}
+.kanji-grid button:focus,
+.kanji-grid button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 600px) {
+  .kanji-grid button {
+    padding: 6px 8px;
+    font-size: 18px;
+  }
+}
+
+/* レベル選択・戻るボタン */
+.level-button {
+  font-size: 0.9em;
+  font-weight: 600;
+  padding: 0.45em 0.9em;
+  margin: 6px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #FF7F50 0%, #FF4500 100%);
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.level-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+  background: linear-gradient(135deg, #FF4500 0%, #FF7F50 100%);
+}
+
+.level-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* ゲーム終了・時間切れメッセージ */
+.kanji-grid p {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 1em;
+  font-weight: 600;
+  color: #ff4500;
+}
+
+/* グローバル設定 */
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 16px;
+  box-sizing: border-box;
+}
+

@@ -1,0 +1,65 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# macOS のシステムファイル
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# node.js 関連
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# ビルド成果物
+dist/
+build/
+coverage/
+
+# IDE / エディタ関連
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# 一時ファイル
+*.tmp
+*.swp
+*.bak
+*.log
+
+# OS 関連
+Thumbs.db
+Desktop.ini
+
+# 他の無視したいフォルダ
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
