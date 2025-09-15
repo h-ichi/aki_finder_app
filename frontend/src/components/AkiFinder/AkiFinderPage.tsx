@@ -1,5 +1,5 @@
 // src/components/AkiFinder/AkiFinderPage.tsx
-import React, { useState } from "react";
+import { useState } from "react";
 import LevelSelector from "./LevelSelector";
 import AkiFinderGame from "./AkiFinderGame";
 

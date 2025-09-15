@@ -1,5 +1,4 @@
 // src/components/AkiFinder/LevelSelector.tsx
-import React from "react";
 
 interface LevelSelectorProps {
   setLevel: (lv: number) => void;
