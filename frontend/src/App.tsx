@@ -1,4 +1,3 @@
-import React from 'react';
 import AkiFinderPage from "./components/AkiFinder/AkiFinderPage";
 import "./App.css";
 
