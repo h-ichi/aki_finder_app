@@ -38,6 +38,7 @@ export default function AkiFinderPage() {
     } catch (err) {
       console.error("スコア送信エラー:", err);
     }
+    
 
     setLatestScore(score);
     fetchRanking();
@@ -62,8 +63,7 @@ export default function AkiFinderPage() {
         </>
       )}
 
-      {/* モーダル部分を非表示にする例 */}
-      {false && latestScore && (
+      {latestScore && (
         <div
           style={{
             position: "fixed",
@@ -89,10 +89,11 @@ export default function AkiFinderPage() {
               textAlign: "center",
             }}
           >
-            <h3>レベル {latestScore.level} のスコア</h3>
-            <p>残り時間: {latestScore.remaining_time.toFixed(2)} 秒</p>
+            <h3 style={{ fontSize: "2rem" }}>レベル {latestScore.level} のスコア</h3>
+            <p style={{ fontSize: "1.6rem" }}>残り時間: {latestScore.remaining_time.toFixed(2)} 秒</p>
 
-            <h4>今日のランキング（上位10位）</h4>
+
+           {/*  <h4>今日のランキング（上位10位）</h4>
             {ranking.length > 0 ? (
               <ol style={{ padding: 0, listStyle: "none", margin: 0 }}>
                 {ranking.map((r, i) => (
@@ -119,7 +120,7 @@ export default function AkiFinderPage() {
               </ol>
             ) : (
               <p>まだ今日のランキングはありません。</p>
-            )}
+            )} */}
 
             <button
               style={{
