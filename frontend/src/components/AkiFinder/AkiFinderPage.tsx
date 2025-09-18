@@ -63,7 +63,7 @@ export default function AkiFinderPage() {
         </>
       )}
 
-      {latestScore && (
+     { /* {latestScore && (
         <div
           style={{
             position: "fixed",
@@ -119,7 +119,7 @@ export default function AkiFinderPage() {
               </ol>
             ) : (
               <p>まだ今日のランキングはありません。</p>
-            )}
+            )} */ }
 
             <button
               style={{
