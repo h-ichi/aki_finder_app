@@ -18,9 +18,9 @@ const kanjiPool = [
 const fonts = ["serif", "sans-serif", "monospace", "cursive", "fantasy"];
 
 const levelSettings: Record<number, { count: number; time: number; colorful: boolean }> = {
-  1: { count: 100, time: 30, colorful: false },
-  2: { count: 100, time: 30, colorful: true },
-  3: { count: 100, time: 30, colorful: true },
+  1: { count: 100, time: 20, colorful: false },
+  2: { count: 100, time: 20, colorful: true },
+  3: { count: 100, time: 20, colorful: true },
 };
 
 type Props = {
