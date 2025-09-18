@@ -5,7 +5,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <h1>秋探しアプリ</h1>
+      <h1>のぎへんチャレンジ</h1>
       <AkiFinderPage />
     </div>
   );
