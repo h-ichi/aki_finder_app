@@ -38,7 +38,6 @@ export default function AkiFinderPage() {
     } catch (err) {
       console.error("スコア送信エラー:", err);
     }
-    
 
     setLatestScore(score);
     fetchRanking();
@@ -63,7 +62,8 @@ export default function AkiFinderPage() {
         </>
       )}
 
-     { /* {latestScore && (
+      {/* モーダル部分を非表示にする例 */}
+      {false && latestScore && (
         <div
           style={{
             position: "fixed",
@@ -119,7 +119,7 @@ export default function AkiFinderPage() {
               </ol>
             ) : (
               <p>まだ今日のランキングはありません。</p>
-            )} */ }
+            )}
 
             <button
               style={{
