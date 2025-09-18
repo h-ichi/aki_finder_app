@@ -30,7 +30,7 @@ export default function AkiFinderPage() {
     const score: Score = { level, remaining_time: timeLeft };
 
     try {
-      await fetch("https://aki-app-api.onrender.com", {
+      await fetch("https://aki-app-api.onrender.com/scores", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ score }),
@@ -38,6 +38,7 @@ export default function AkiFinderPage() {
     } catch (err) {
       console.error("スコア送信エラー:", err);
     }
+    
 
     setLatestScore(score);
     fetchRanking();
