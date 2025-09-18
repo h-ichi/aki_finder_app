@@ -25,7 +25,7 @@ const levelSettings: Record<number, { count: number; time: number; colorful: boo
 
 type Props = {
   level: number;
-  onFinish: () => void;
+  onFinish: (timeLeft: number) => void;
 };
 
 export default function AkiFinderGame({ level, onFinish }: Props) {
@@ -44,42 +44,41 @@ export default function AkiFinderGame({ level, onFinish }: Props) {
     setFinished(false);
   }, [level]);
 
-  // レベル2・3のカラフルスタイル
+  // スタイル適用
   useEffect(() => {
     const { colorful } = levelSettings[level];
-  
-    if (colorful) {
-      // レベル2・3: カラフル
-      const colors = ["#e63946","#ffb703","#8ecae6","#219ebc","#023047","#06d6a0","#ef476f"];
-      const bgColors = ["#f1faee","#ffe5ec","#fdfcdc","#d0f4de","#caf0f8","#fff3b0"];
-      setStyles(kanjis.map((kanji) => ({
-        transform: `rotate(${Math.random() * 30 - 15}deg)`,
-        color: colors[Math.floor(Math.random() * colors.length)],
-        backgroundColor: bgColors[Math.floor(Math.random() * bgColors.length)],
-        fontFamily: fonts[Math.floor(Math.random() * fonts.length)],
-        display: "inline-block",
-        cursor: "pointer",
-        transition: "all 0.3s",
-        animation: kanji === "秋" && level === 3 ? "shake 0.6s infinite" : "none",
-      })));
-    } else {
-      // レベル1: 白背景、黒文字、黒枠
-      setStyles(kanjis.map(() => ({
-        backgroundColor: "#ffffff",
-        color: "#000000",
-        border: "1px solid #000000",
-        display: "inline-block",
-        cursor: "pointer",
-        transition: "all 0.3s",
-      })));
-    }
+    const colors = ["#e63946","#ffb703","#8ecae6","#219ebc","#023047","#06d6a0","#ef476f"];
+    const bgColors = ["#f1faee","#ffe5ec","#fdfcdc","#d0f4de","#caf0f8","#fff3b0"];
+
+    setStyles(kanjis.map(k => {
+      if (colorful) {
+        return {
+          transform: `rotate(${Math.random()*30-15}deg)`,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          backgroundColor: bgColors[Math.floor(Math.random() * bgColors.length)],
+          fontFamily: fonts[Math.floor(Math.random() * fonts.length)],
+          display: "inline-block",
+          cursor: "pointer",
+          transition: "all 0.3s",
+          animation: k==="秋" && level===3 ? "shake 0.6s infinite" : "none",
+        };
+      } else {
+        return {
+          backgroundColor: "#fff",
+          color: "#000",
+          border: "1px solid #000",
+          display: "inline-block",
+          cursor: "pointer",
+          transition: "all 0.3s",
+        };
+      }
+    }));
   }, [level, kanjis]);
-  
 
   // 制限時間
   useEffect(() => {
     if (timeLeft <= 0 || finished) {
-      if (!finished) onFinish();
+      if (!finished) onFinish(0);
       return;
     }
     const timer = setInterval(() => setTimeLeft(prev => prev - 1), 1000);
@@ -95,13 +94,13 @@ export default function AkiFinderGame({ level, onFinish }: Props) {
     return () => clearInterval(shuffleInterval);
   }, [level, finished]);
 
-  // レベル3: 背景色を変える
+  // レベル3: 背景色変化
   useEffect(() => {
     if (level !== 3 || finished) return;
     const bgColors = ["#f1faee","#ffe5ec","#fdfcdc","#d0f4de","#caf0f8","#fff3b0"];
     const bgInterval = setInterval(() => {
       setStyles(prev =>
-        prev.map((style) => ({
+        prev.map(style => ({
           ...style,
           backgroundColor: bgColors[Math.floor(Math.random() * bgColors.length)],
         }))
@@ -114,7 +113,7 @@ export default function AkiFinderGame({ level, onFinish }: Props) {
     if (finished) return;
     if (kanji === "秋") {
       setFinished(true);
-      onFinish();
+      onFinish(timeLeft);
     }
   };
 
