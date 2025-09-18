@@ -18,7 +18,7 @@ export default function AkiFinderPage() {
 
   const fetchRanking = async () => {
     try {
-      const res = await fetch(`https://aki-app-api.onrender.com/?level=${level}`);
+      const res = await fetch(`https://aki-app-api.onrender.com/scores?level=${level}`);
       const data: Score[] = await res.json();
       setRanking(data); // Rails側で0以下は除外済
     } catch (err) {
